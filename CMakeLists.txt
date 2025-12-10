@@ -82,6 +82,13 @@ set(GMT_MAIN_SRC_DIR     ${CMAKE_CURRENT_SOURCE_DIR})
 set(GMT_MAIN_INCLUDE_DIR ${GMT_MAIN_SRC_DIR}/include)
 set(GMT_INCLUDE_DIR ${CMAKE_CURRENT_BINARY_DIR}/include)
 
+# Add pkg-config
+configure_file(
+  ${CMAKE_CURRENT_SOURCE_DIR}/pkgconfig/gmt.pc.in
+  ${CMAKE_CURRENT_BINARY_DIR}/pkgconfig/gmt.pc @ONLY)
+install(FILES ${CMAKE_CURRENT_BINARY_DIR}/pkgconfig/gmt.pc DESTINATION pkgconfig)
+
+
 # check for dependencies
 find_package(MPI REQUIRED)
 
