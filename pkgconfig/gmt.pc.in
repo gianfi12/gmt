@@ -3,8 +3,10 @@ exec_prefix=${prefix}
 includedir=${prefix}/include
 libdir=${exec_prefix}/lib
 
-Name: @CMAKE_PROJECT_NAME@_GMT
+Name: @CMAKE_PROJECT_NAME@
 Description: Global Memory and Threading (GMT)
 Version: @PACKAGE_VERSION@
-Cflags: @CMAKE_CXX_FLAGS@ -I${includedir}
-Libs: -L${libdir} -Wl,-rpath,${libdir} -lgmt @LINK_FLAGS@
+Cflags: -I${includedir}
+Libs: -L${libdir} -lgmt @MPI_CXX_LINK_FLAGS@ -lmpi 
+
+Requires: hwloc
